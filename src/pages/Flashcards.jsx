@@ -155,7 +155,7 @@ function Flashcards() {
           )} */}
 
           <motion.div
-            className={`flip-card w-full h-96 mb-8 ${isFlipped ? 'flipped' : ''}`}
+            className={`flip-card w-full h-[70vh] lg:h-96 mb-8 ${isFlipped ? 'flipped' : ''}`}
             onClick={() => setIsFlipped(!isFlipped)}
             drag={isMobile ? "x" : false}
             dragConstraints={{ left: 0, right: 0 }}
@@ -200,24 +200,31 @@ function Flashcards() {
                      {cards[currentIndex]?.front[language]}
                    </h2>
 
-                <p className="text-sm text-gray-500 text-black bg-sky-100 rounded-lg w-fit max-w-sm mt-auto">
+                {!isMobile && (
+                  <p className="text-sm text-gray-500 text-black bg-sky-100 rounded-lg w-fit max-w-sm mt-auto">
                   {translations[language].clickToFlip}
                 </p>
+                )}
                 {isMobile &&(
-                  <p className='text-xs text-gray-500 bg-sky-100 rounded-lg w-fit max-w-sm'>
+                  <p className='text-xs text-gray-500 bg-sky-100 rounded-lg w-fit max-w-sm mt-auto'>
                     {translations[language].swipeHint}
                   </p>
                 )}
               </div>
+
               <div className="flip-card-back bg-indigo-600 text-white rounded-xl shadow-lg p-8 flex flex-col items-center justify-center w-fit">
                 <p className="xl:text-xl sm:text-sm text-center mt-auto">
                   {cards[currentIndex]?.back[language]}
                 </p>
-                <p className="text-sm text-gray-500 bg-sky-100 rounded-lg w-fit max-w-sm opacity-75 mt-auto">
+
+                {!isMobile && (
+                  <p className="text-sm text-gray-500 bg-sky-100 rounded-lg w-fit max-w-sm opacity-75 mt-auto">
                   {translations[language].clickToFlip}
                 </p>
+                )}
+
                 {isMobile && (
-                  <p className='text-xs opacity-50 text-gray-500 bg-sky-100 rounded-lg w-fit max-w-sm'>
+                  <p className='text-xs opacity-50 text-gray-500 bg-sky-100 rounded-lg w-fit max-w-sm mt-auto'>
                     {translations[language].swipeHint}
                   </p>
                 )}
@@ -253,6 +260,9 @@ function Flashcards() {
           </div>
           )}
         </div>
+      </div>
+      <div className="mt-auto text-center text-white text-sm tracking-wide" style={{ color: 'rgba(0,0,0,1)' }}>
+        Project by Rami Ben Taieb © {new Date().getFullYear()}
       </div>
     </div>
   );

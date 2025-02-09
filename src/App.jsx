@@ -14,10 +14,10 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/flashcards/:chapter" element={<Flashcards />} />
         </Routes>
-        <div className="absolute bottom-1 left-5 right-5 flex justify-center items-center text-white text-sm tracking-wide" style={{ color: 'rgba(0,0,0,01)' }}>
-        Project by Rami Ben Taieb © {new Date().getFullYear()}
-      </div>
       </Router>
+        {/* <div className="mt-auto py-2 text-center text-white text-sm tracking-wide" style={{ color: 'rgba(0,0,0,1)' }}>
+        Project by Rami Ben Taieb © {new Date().getFullYear()}
+      </div> */}
     </LanguageContext.Provider>
   );
 }
